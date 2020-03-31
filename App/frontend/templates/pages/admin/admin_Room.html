@@ -1,0 +1,65 @@
+{% extends "layouts/admin_layout.html" %}
+{% block title %}Room{% endblock %}
+{% block body %}
+
+    <div class="container text-center">
+        <div id="head" class="m-3">
+            <div class="d-flex justify-content-center">
+                <div class="m-3">
+                    <img width="200" height="200" src="{{ url_for('static', filename='imgs/QRimg/'+imgurl) }}"
+                         alt="QR img">
+                </div>
+                <div class="m-3 align-self-center">
+                    <table class="table-admin">
+                        <tr>
+                            <th>room name</th>
+                            <th>room id</th>
+                            <th>time start</th>
+                            <th>time finished</th>
+                        </tr>
+                        <tr>
+                            <th>{{ room.name }}</th>
+                            <th>{{ room.random_id }}</th>
+                            <th>{{ room.timeStart }}</th>
+                            <th>{{ room.timeFinished }}</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <table class="table-admin">
+                <thead>
+                <tr>
+                    <th>room id</th>
+                    <th>room name</th>
+                    <th>time start</th>
+                    <th>time finished</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if roomslist %}
+
+                    {% for room in roomslist %}
+                        <tr>
+                            <td><a href="{{ config.app_url + 'admin/' +room.random_id }}">{{ room.random_id }}</a>
+                            </td>
+                            <td>{{ room.name }}</td>
+                            <td>{{ room.timeStart }}</td>
+                            <td>{{ room.timeFinished }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4">there is no room for you</td>
+                    </tr>
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="m-3 col">
+            <a href="{{ config.app_url }}logout/">logout admin</a>
+        </div>
+    </div>
+{% endblock %}

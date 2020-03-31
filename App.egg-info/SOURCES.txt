@@ -1,0 +1,8 @@
+setup.py
+App/__init__.py
+App.egg-info/PKG-INFO
+App.egg-info/SOURCES.txt
+App.egg-info/dependency_links.txt
+App.egg-info/not-zip-safe
+App.egg-info/requires.txt
+App.egg-info/top_level.txt

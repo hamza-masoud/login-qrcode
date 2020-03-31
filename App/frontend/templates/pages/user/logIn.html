@@ -1,0 +1,44 @@
+{% extends "layouts/user_layout.html" %}
+{% block title %}log in the class{% endblock %}
+{% block body %}
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12 h-auto mt-5">
+                        <div id="booth">
+                            <video height="300" id="video" width="380"></video>
+                            <a href="#" id="capture" class="booth-capture-button">take photo</a>
+                            <canvas id="canvas" width="400" height="300" hidden></canvas>
+                            <img id="photo" src="" alt="" hidden>
+                            <form action="{{ config.app_url }}sign-in/" id="form" method="post">
+                                <input id="text-input" name="img-text" type="text" value="" hidden>
+                            </form>
+                        </div>
+                        <script src="{{ url_for('static', filename='js/action.js') }}"></script>
+
+
+                        {% if timeout %}
+                            <div class="alert alert-danger mt-3" role="alert">
+                                the time now is out of class time
+                                <a href="{{ config.app_url }}" class="alert-link">login again</a>
+                                <a href="{{ config.app_url }}logout/" class="alert-link">logout user</a>.
+                            </div>
+
+                        {% elif error %}
+                            <div class="alert alert-danger mt-3" role="alert">
+                                fault in login room not found 404
+                                <a href="{{ config.app_url }}" class="alert-link">login again</a>
+                                <a href="{{ config.app_url }}logout/" class="alert-link">logout user</a>.
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

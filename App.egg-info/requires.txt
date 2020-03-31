@@ -1,0 +1,6 @@
+flask
+Pillow
+pyzbar
+Flask-SQLAlchemy
+qrcode
+pytz

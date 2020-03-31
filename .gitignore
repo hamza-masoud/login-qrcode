@@ -1,0 +1,4 @@
+.flaskenv
+req.txt
+venv/
+.idea/
