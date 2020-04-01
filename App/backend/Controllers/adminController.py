@@ -83,8 +83,7 @@ class adminController:
                         db.session.commit()
 
                     except:
-                        db.session.add(new_room)
-                        db.session.commit()
+                        return "error in connect with db"
                     create_QR(roomid)
                     return redirect(app.config.app_url + "admin/" + roomid)
                 else:
@@ -119,7 +118,7 @@ class adminController:
 
                 return render_template("pages/admin/admin_Room.html", room=room, users=users,
                                        imgurl=roomid + ".png")
-        return "error"
+        return redirect(app.config.app_url + "admin/")
 
 
 def check_admin_login():
@@ -134,9 +133,7 @@ def check_admin_login():
 
 def create_QR(QR_code):
     qr = qrcode.make(QR_code)
-    # z = os.path.normpath(os.getcwd() + os.sep + os.pardir)
-    # print(os.path.join(os.getcwd(), "App", "frontend", "static", "imgs", "QRimg",
-    #                    QR_code + ".png"))
+
     QR_url = os.path.join(os.getcwd(), "App", "frontend", "static", "imgs", "QRimg",
                           QR_code + ".png")
 

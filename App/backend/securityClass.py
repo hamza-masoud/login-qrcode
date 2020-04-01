@@ -47,7 +47,6 @@ def check_file_from_html(file_from_html):
 def readQrcode(filename):
     reader = zxing.BarCodeReader()
     barcode = reader.decode(filename)
-    print (barcode.raw)
     return barcode.raw
 
 
@@ -56,14 +55,6 @@ def time_comparison(timeBefor, timeAfter):
     timezone = pytz.timezone("Asia/Gaza")
     timenow = timezone.localize(d_naive)
     timenow = timenow + datetime.timedelta(hours=3)
-
-    print(pytz.timezone("Asia/Gaza").localize(timeBefor))
-    print(timenow)
-    print(pytz.timezone("Asia/Gaza").localize(timeAfter))
-
-    print(pytz.timezone("Asia/Gaza").localize(timeBefor) > timenow)
-    # print(timenow)
-    print(timenow > pytz.timezone("Asia/Gaza").localize(timeAfter))
 
     if pytz.timezone("Asia/Gaza").localize(timeBefor) > timenow > pytz.timezone("Asia/Gaza").localize(timeAfter):
         return True

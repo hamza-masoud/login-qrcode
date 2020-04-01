@@ -50,6 +50,16 @@ body {
     text-decoration: none;
 }
 
+#flip-btn {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: cornflowerblue;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+
 #canvas {
     display: none;
 }
