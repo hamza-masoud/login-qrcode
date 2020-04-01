@@ -12,6 +12,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 basedir = basedir.split(os.sep)
 basedir.remove(basedir[0])
+basedir.remove(basedir[0])
 basedir = os.sep.join(basedir)
 
 download_file = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'QRimgs'))
