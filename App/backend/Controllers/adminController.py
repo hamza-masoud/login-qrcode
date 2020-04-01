@@ -137,6 +137,6 @@ def check_admin_login():
 def create_QR(QR_code):
     qr = qrcode.make(QR_code)
 
-    QR_url = os.path.join(os.path.normpath(os.getcwd() + os.sep + os.pardir), "frontend", "static", "imgs", "QRimg", QR_code + ".png")
+    QR_url = os.path.join(os.path.normpath(basedir + os.sep + os.pardir), "frontend", "static", "imgs", "QRimg", QR_code + ".png")
     qr.save(QR_url)
     return QR_url
