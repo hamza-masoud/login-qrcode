@@ -74,8 +74,6 @@ class adminController:
                     timeFinished = datetime(
                         *[int(v) for v in time2.replace('T', '-').replace(':', '-').split('-')])
 
-                    print(timeStart)
-                    print(timeFinished)
                     roomid = random_filename()
 
                     new_room = Rooms(admin_id=adminid, name=name, random_id=roomid, timeStart=timeStart,
@@ -136,7 +134,11 @@ def check_admin_login():
 
 def create_QR(QR_code):
     qr = qrcode.make(QR_code)
+    # z = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+    # print(os.path.join(os.getcwd(), "App", "frontend", "static", "imgs", "QRimg",
+    #                    QR_code + ".png"))
+    QR_url = os.path.join(os.getcwd(), "App", "frontend", "static", "imgs", "QRimg",
+                          QR_code + ".png")
 
-    QR_url = os.path.join(os.path.normpath(basedir + os.sep + os.pardir), "frontend", "static", "imgs", "QRimg", QR_code + ".png")
     qr.save(QR_url)
     return QR_url

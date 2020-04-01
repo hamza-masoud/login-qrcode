@@ -38,20 +38,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% if roomslist %}
+                {% if users %}
 
-                    {% for room in roomslist %}
+                    {% for user in users %}
                         <tr>
-                            <td><a href="{{ config.app_url + 'admin/' +room.random_id }}">{{ room.random_id }}</a>
-                            </td>
-                            <td>{{ room.name }}</td>
-                            <td>{{ room.timeStart }}</td>
-                            <td>{{ room.timeFinished }}</td>
+                            <td>user[0]</td>
+                            <td>user[1]</td>
+                            <td>user[2]</td>
+                            <td>user[3]</td>
                         </tr>
                     {% endfor %}
                 {% else %}
                     <tr>
-                        <td colspan="4">there is no room for you</td>
+                        <td colspan="4">there is no anyone in the room</td>
                     </tr>
                 {% endif %}
                 </tbody>
