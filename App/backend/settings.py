@@ -10,6 +10,10 @@ app.config.app_url = "https://login-qrcode.herokuapp.com/"
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+basedir.split(os.sep)
+del basedir[0]
+basedir = os.sep.join(basedir)
+
 download_file = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'QRimgs'))
 
 app.config.file_name_length = 5
