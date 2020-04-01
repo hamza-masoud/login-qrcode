@@ -5,8 +5,7 @@ import random
 import string
 from datetime import datetime as dt
 import datetime
-from qrtools import qrtools
-from PIL import Image
+import zxing
 
 
 def chick_the_request(data):
@@ -46,13 +45,10 @@ def check_file_from_html(file_from_html):
 
 
 def readQrcode(filename):
-    qr = qrtools.QR()
-    qr = qr.decode(Image.open(filename))
-
-    if not qr.data:
-        return ""
-    else:
-        return qr.data
+    reader = zxing.BarCodeReader()
+    barcode = reader.decode(filename)
+    print (barcode.raw)
+    return barcode.raw
 
 
 def time_comparison(timeBefor, timeAfter):
