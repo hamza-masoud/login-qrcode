@@ -47,8 +47,10 @@ def check_file_from_html(file_from_html):
 def readQrcode(filename):
     reader = zxing.BarCodeReader()
     barcode = reader.decode(filename)
-    return barcode.raw
-
+    if barcode:
+        return barcode.raw
+    else:
+        return ""
 
 def time_comparison(timeBefor, timeAfter):
     d_naive = dt.utcnow()

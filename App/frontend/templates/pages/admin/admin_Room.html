@@ -31,21 +31,21 @@
             <table class="table-admin">
                 <thead>
                 <tr>
-                    <th>room id</th>
-                    <th>room name</th>
-                    <th>time start</th>
-                    <th>time finished</th>
+                    <th>users number</th>
+                    <th>user name</th>
+                    <th>user id</th>
+                    <th>time login</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% if users %}
+                {% if users|length > 0 %}
 
                     {% for user in users %}
                         <tr>
-                            <td>user[0]</td>
-                            <td>user[1]</td>
-                            <td>user[2]</td>
-                            <td>user[3]</td>
+                            <td>{{user[0]}}</td>
+                            <td>{{user[1]}}</td>
+                            <td>{{user[2]}}</td>
+                            <td>{{user[3]}}</td>
                         </tr>
                     {% endfor %}
                 {% else %}
