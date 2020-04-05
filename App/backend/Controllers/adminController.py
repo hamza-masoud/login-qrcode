@@ -3,7 +3,7 @@ from App import app
 from App.backend.securityClass import chick_the_request, random_filename
 from App.backend.models import db, User, Rooms, Admin, signIn
 import os
-from App.backend.settings import basedir
+from App.backend.settings import basedir, QR_img_path
 import qrcode
 from datetime import datetime
 
@@ -116,9 +116,7 @@ class adminController:
                         users.append([z, name.name, name.username, user.time_login])
                         z += 1
 
-                QR_url = os.path.join(os.getcwd(), "App", "backend", "Controllers", "static", "imgs", "QRimg",
-                                      roomid + ".png")
-
+                QR_url = os.path.join(QR_img_path, roomid + ".png")
                 if os.path.isfile(QR_url):
                     pass
                 else:
@@ -140,8 +138,11 @@ def check_admin_login():
 
 
 def create_QR(QR_code):
+    if not os.path.isdir(QR_img_path):
+        os.makedirs(QR_img_path)
+
     qr = qrcode.make(QR_code)
-    QR_url = os.path.join(os.getcwd(), "App", "backend", "Controllers", "static", "imgs", "QRimg",
-                          QR_code + ".png")
+    QR_url = os.path.join(QR_img_path, QR_code + ".png")
+
     qr.save(QR_url)
     return QR_url
