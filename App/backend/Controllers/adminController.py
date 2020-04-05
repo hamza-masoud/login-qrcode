@@ -116,6 +116,12 @@ class adminController:
                         users.append([z, name.name, name.username, user.time_login])
                         z += 1
 
+                QR_url = os.path.join(basedir, "static", "imgs", "QRimg", roomid + ".png")
+                if os.path.isfile(QR_url):
+                    pass
+                else:
+                    create_QR(roomid)
+
                 return render_template("pages/admin/admin_Room.html", room=room, users=users,
                                        imgurl=roomid + ".png")
         return redirect(app.config.app_url + "admin/")
@@ -135,6 +141,6 @@ def create_QR(QR_code):
     qr = qrcode.make(QR_code)
     basedir = os.path.abspath(os.path.dirname(__file__))
     QR_url = os.path.join(basedir, "static", "imgs", "QRimg", QR_code + ".png")
-    
+
     qr.save(QR_url)
     return QR_url
