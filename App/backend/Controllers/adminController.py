@@ -3,7 +3,7 @@ from App import app
 from App.backend.securityClass import chick_the_request, random_filename
 from App.backend.models import db, User, Rooms, Admin, signIn
 import os
-from App.backend.settings import basedir, QR_img_path
+from App.backend.settings import QR_img_path
 import qrcode
 from datetime import datetime
 
