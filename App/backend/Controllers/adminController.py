@@ -116,7 +116,7 @@ class adminController:
                         users.append([z, name.name, name.username, user.time_login])
                         z += 1
 
-                QR_url = os.path.join(os.getcwd(), "App", "frontend", "static", "imgs", "QRimg",
+                QR_url = os.path.join(os.getcwd(), "App", "backend", "Controllers", "static", "imgs", "QRimg",
                                       roomid + ".png")
 
                 if os.path.isfile(QR_url):
@@ -141,7 +141,7 @@ def check_admin_login():
 
 def create_QR(QR_code):
     qr = qrcode.make(QR_code)
-    QR_url = os.path.join(os.getcwd(), "App", "frontend", "static", "imgs", "QRimg",
+    QR_url = os.path.join(os.getcwd(), "App", "backend", "Controllers", "static", "imgs", "QRimg",
                           QR_code + ".png")
     qr.save(QR_url)
     return QR_url
