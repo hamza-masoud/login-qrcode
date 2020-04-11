@@ -102,7 +102,7 @@ class adminController:
 
     def showRoom(self, roomid):
         if check_admin_login():
-            Room = Rooms.query.filter_by(admin_id=session['admin_id']).all()
+            Room = Rooms.query.filter_by(admin_id=session['admin_id'], random_id=roomid).all()
             if not Room:
                 return self.showAdminPage()
             users = []
