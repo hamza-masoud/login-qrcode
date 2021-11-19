@@ -8,6 +8,11 @@ import pytz
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+@migrate.configure
+def configure_alembic(config):
+    # modify config object
+    return config
+
 def timezone():
     d_naive = datetime.utcnow()
     timezone = pytz.timezone("Asia/Gaza")
