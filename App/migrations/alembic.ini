@@ -1,0 +1,1 @@
+script_location = alembic
