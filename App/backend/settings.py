@@ -4,7 +4,7 @@ from App import app
 from datetime import datetime as dt
 
 app.secret_key = "data_convert"
-app.config.app_url = "https://login-qrcode.herokuapp.com/"
+app.config.app_url = "https://qr-login.herokuapp.com/"
 # app.config.app_url = "http://127.0.0.1:5000/"
 
 
