@@ -2,10 +2,11 @@ from flask_sqlalchemy import SQLAlchemy
 from App import app
 import App.backend.settings
 from datetime import datetime
+from flask_migrate import Migrate
 import pytz
 
 db = SQLAlchemy(app)
-
+migrate = Migrate(app, db)
 
 def timezone():
     d_naive = datetime.utcnow()
