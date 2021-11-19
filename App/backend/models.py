@@ -8,6 +8,7 @@ import pytz
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+@app.before_first_request
 @migrate.configure
 def configure_alembic(config):
     # modify config object
