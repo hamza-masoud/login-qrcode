@@ -39,15 +39,9 @@ class userController:
     def signin(self):
         if request.method == 'POST':
             if check_user_login():
-                if chick_the_request(['img-text']):
-                    imgstring = request.form['img-text']
-                    imgdata = base64.b64decode(imgstring.split(",")[1])
-                    filename = 'test.jpg'
-                    with open(filename, 'wb') as f:
-                        f.write(imgdata)
-                    QRNcode = readQrcode('test.jpg')
-                    os.remove('test.jpg')
-                    roomid = Rooms.query.filter_by(random_id=QRNcode).first()
+                if chick_the_request(['text']):
+                    text = request.form['text']
+                    roomid = Rooms.query.filter_by(random_id=text).first()
                     if roomid:
                         if time_comparison(roomid.timeFinished, roomid.timeStart):
                             checksignin = signIn.query.filter_by(user_id=session['user_id']).all()
