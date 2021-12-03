@@ -19,7 +19,7 @@ db_path = os.path.join(basedir, 'projectDB.db')
 
 db_uri = 'sqlite:///{}'.format(db_path)
 # app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres: // vhfzhvczitammi: 9bdfbef60d72378a2bb676b1f9be6b72bedb00131e20f831d13404301b8bd481@ec2-63-32-173-118.eu-west-1.compute.amazonaws.com: 5432/dd3i3a936je4up'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://vhfzhvczitammi:9bdfbef60d72378a2bb676b1f9be6b72bedb00131e20f831d13404301b8bd481@ec2-63-32-173-118.eu-west-1.compute.amazonaws.com:5432/dd3i3a936je4up'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 app.config['UPLOAD_FOLDER'] = 'QRimgs'
